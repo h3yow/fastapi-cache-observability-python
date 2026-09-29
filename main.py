@@ -1,7 +1,9 @@
 import uvicorn
-from fastapi import FastAPI
 
-app = FastAPI()
+from app.api import create_app
+from app.datasource import SimulatedDataSource
+
+app = create_app(source=SimulatedDataSource({"hello": "world"}))
 
 
 @app.get("/")
